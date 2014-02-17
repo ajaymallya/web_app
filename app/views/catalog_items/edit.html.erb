@@ -1,27 +1,2 @@
-<%= form_for(@catalog_item) do |f| %>
-  <% if @catalog_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@catalog_item.errors.count, "error") %>
-      prohibited this catalog item from being saved:</h2>
-      <ul>
-      <% @catalog_item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<p>
-<%= f.label :title %><br />
-<%= f.text_field :title %>
-</p>
-<p>
-<%= f.label :authors %><br />
-<%= f.text_field :authors %>
-</p>
-<p>
-<%= f.label :description %>
-<%= f.text_field :description %>
-</p>
-<%= f.submit %>
-<% end %>
+<h2> Edit Catalog Item </h2>
+<%= render  "form" %>
