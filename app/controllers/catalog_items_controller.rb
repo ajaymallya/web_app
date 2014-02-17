@@ -21,6 +21,25 @@ class CatalogItemsController < ApplicationController
     end
   end
 
+  def new
+    @catalog_item = CatalogItem.new
+  end
+
+  def create
+    @catalog_item = CatalogItem.new(catalog_item_params)
+    if @catalog_item.save
+      redirect_to @catalog_item
+    else
+      render 'new'
+    end
+  end
+
+  def destroy
+    @catalog_item = CatalogItem.find(params[:id])
+    @catalog_item.destroy
+    redirect_to catalog_items_path
+  end
+
   private
     def catalog_item_params
       params.require(:catalog_item).permit(:title, :authors, :description)
