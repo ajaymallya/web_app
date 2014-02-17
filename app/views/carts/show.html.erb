@@ -10,6 +10,7 @@
     <p>
       Description: <%= ci.description %>
     </p>
+    <%= link_to 'Delete', delete_from_cart_path(@cart, ci) %>
   </div>
 <% end %>
 

@@ -14,4 +14,11 @@ class CartsController < ApplicationController
     @cart.save
     redirect_to @cart
   end
+
+  def delete_from_cart
+    @cart = Cart.find(params[:id])
+    catalog_item = CatalogItem.find(params[:catalog_item_id])
+    @cart.catalog_items.delete(catalog_item)
+    redirect_to cart_path(@cart)
+  end
 end

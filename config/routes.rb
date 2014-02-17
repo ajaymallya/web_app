@@ -57,4 +57,5 @@ WebApp::Application.routes.draw do
   resources :catalog_items
   resources :carts
   match '/carts/add/:catalog_item_id', to: 'carts#add_to_cart', as: :add_to_cart, via: [:get, :post]
+  match '/carts/:id/delete/:catalog_item_id', to: 'carts#delete_from_cart', as: :delete_from_cart, via: [:get, :post]
 end
