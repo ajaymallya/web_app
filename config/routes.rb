@@ -55,4 +55,6 @@ WebApp::Application.routes.draw do
   #   end
   root :to => "catalog_items#index"
   resources :catalog_items
+  resources :carts
+  match '/carts/add/:catalog_item_id', to: 'carts#add_to_cart', as: :add_to_cart, via: [:get, :post]
 end

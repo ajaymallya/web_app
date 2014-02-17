@@ -12,4 +12,5 @@
   <%= @catalog_item.description %>
 </p>
         <%=  link_to 'Edit', edit_catalog_item_path(@catalog_item) %> |
-        <%=  link_to 'Back', catalog_items_path %>
+        <%=  link_to 'Back', catalog_items_path %> |
+        <%=  link_to 'Add to Cart', add_to_cart_path(@catalog_item) %>

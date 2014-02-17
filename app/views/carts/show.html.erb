@@ -1,0 +1,16 @@
+<h2>Cart Contents</h2>
+<% @cart.catalog_items.each do |ci| %>
+  <div class="cartItem">
+    <p>
+      Title: <%= ci.title %>
+    </p>
+    <p>
+      Authors: <%= ci.authors %>
+    </p>
+    <p>
+      Description: <%= ci.description %>
+    </p>
+  </div>
+<% end %>
+
+<%= link_to "Back", catalog_items_path %>
