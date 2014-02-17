@@ -1,0 +1,6 @@
+<h2>Catalog Items</h2>
+<ul>
+  <% @catalog_items.each do |ci| %>
+    <li><%= link_to ci.title, ci %></li>
+  <%end%>
+</ul>

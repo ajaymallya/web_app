@@ -53,4 +53,6 @@ WebApp::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root :to => "catalog_items#index"
+  resources :catalog_items
 end
