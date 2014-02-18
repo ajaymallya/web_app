@@ -1,4 +1,7 @@
 WebApp::Application.routes.draw do
+  get "users/new"
+  get "users/create"
+  get "users/show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -58,4 +61,5 @@ WebApp::Application.routes.draw do
   resources :carts
   match '/carts/add/:catalog_item_id', to: 'carts#add_to_cart', as: :add_to_cart, via: [:get, :post]
   match '/carts/:id/delete/:catalog_item_id', to: 'carts#delete_from_cart', as: :delete_from_cart, via: [:get, :post]
+  resources :users
 end
