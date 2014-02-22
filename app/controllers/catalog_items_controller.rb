@@ -1,6 +1,7 @@
 class CatalogItemsController < ApplicationController
   def index
     @catalog_items = CatalogItem.all
+    @current_user_name = current_user_name
   end
 
   def show
