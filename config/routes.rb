@@ -63,4 +63,5 @@ WebApp::Application.routes.draw do
   match '/carts/:id/delete/:catalog_item_id', to: 'carts#delete_from_cart', as: :delete_from_cart, via: [:get, :post]
   resources :users
   get "/signin", to: 'sessions#new'
+  post "/signin", to: "sessions#create"
 end
