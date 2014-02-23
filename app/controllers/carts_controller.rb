@@ -1,26 +1,23 @@
 class CartsController < ApplicationController
   before_action :require_signin!
   def show
-    @cart = Cart.find(params[:id])
+    @cart = cart
   end
 
   def add_to_cart
-    begin
-      @cart = Cart.find(1)
-    rescue
-      @cart = Cart.new
-    end
     catalog_item = CatalogItem.find(params[:catalog_item_id])
-    @cart.catalog_items << catalog_item
-    @cart.save
-    redirect_to @cart
+    if cart.nil?
+      @current_user.cart = Cart.new
+    end
+    cart.catalog_items << catalog_item
+    cart.save
+    redirect_to cart
   end
 
   def delete_from_cart
-    @cart = Cart.find(params[:id])
     catalog_item = CatalogItem.find(params[:catalog_item_id])
-    @cart.catalog_items.delete(catalog_item)
-    redirect_to cart_path(@cart)
+    cart.catalog_items.delete(catalog_item)
+    redirect_to cart_path(cart)
   end
 
   private
@@ -29,9 +26,14 @@ class CartsController < ApplicationController
         flash[:error] = "You must be logged in to view your cart."
         redirect_to '/signin'
       end
+      @current_user = User.where(name: session[:user_name]).first
     end
 
     def logged_in?
       !session[:user_name].nil?
+    end
+
+    def cart
+      @current_user.cart
     end
 end
