@@ -1,4 +1,6 @@
 <h1>Sign in</h1>
+<p id="error"><%=flash[:error]%></p>
+<p id="notice"><%=flash[:notice]%></p>
 <%= form_for :sign_in, method: "POST" do |f| %>
   <p>
     <%= f.label :name %><br />
