@@ -20,3 +20,10 @@ a {
 span#greeting{
   float:right;
 }
+
+nav {
+  margin-bottom: 25px;
+  padding: 1em;
+  border-bottom: solid 1px green;
+}
+
