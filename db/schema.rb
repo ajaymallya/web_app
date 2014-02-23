@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218013837) do
+ActiveRecord::Schema.define(version: 20140223182136) do
 
   create_table "carts", force: true do |t|
     t.integer  "catalog_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "carts", ["catalog_item_id"], name: "index_carts_on_catalog_item_id"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140218013837) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cart_id"
   end
 
 end

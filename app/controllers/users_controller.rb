@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.cart.build
 
     if @user.save
       flash[:notice] = "You have signed up successfully."
