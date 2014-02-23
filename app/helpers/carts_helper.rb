@@ -4,7 +4,7 @@ module CartsHelper
   end
 
   def greeting
-    "Hello, #{current_user.name}"
+    current_user ? "Hello, #{current_user.name}" : 'Hello'
   end
 
   private
