@@ -2,6 +2,7 @@ class CatalogItemsController < ApplicationController
   def index
     @catalog_items = CatalogItem.all
     @current_user_name = current_user_name
+    @cart = current_user.cart if current_user
   end
 
   def show

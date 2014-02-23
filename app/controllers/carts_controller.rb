@@ -7,7 +7,7 @@ class CartsController < ApplicationController
   def add_to_cart
     catalog_item = CatalogItem.find(params[:catalog_item_id])
     if cart.nil?
-      @current_user.cart = Cart.new
+      current_user.cart = Cart.new
     end
     cart.catalog_items << catalog_item
     cart.save
@@ -26,7 +26,6 @@ class CartsController < ApplicationController
         flash[:error] = "You must be logged in to view your cart."
         redirect_to '/signin'
       end
-      @current_user = User.where(name: session[:user_name]).first
     end
 
     def logged_in?
@@ -34,6 +33,6 @@ class CartsController < ApplicationController
     end
 
     def cart
-      @current_user.cart
+      current_user.cart
     end
 end
