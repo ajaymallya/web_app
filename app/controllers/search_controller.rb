@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
-  def search
+  def new
+    @search = Search.new
   end
 end

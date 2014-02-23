@@ -1,0 +1,14 @@
+<h2>Search</h2>
+<div id='search_container'>
+  <%= form_for(@search, url: search_path) do |f| %>
+    <p>
+      <%= f.label :search %>
+    </p>
+    <p>
+      <%= f.text_field :query %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>
