@@ -4,6 +4,6 @@ class SearchController < ApplicationController
   end
 
   def create
-    render 'results'
+    redirect_to catalog_items_path
   end
 end

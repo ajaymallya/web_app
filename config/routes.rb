@@ -56,7 +56,8 @@ WebApp::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root :to => "catalog_items#index"
+  #root :to => "catalog_items#index"
+  root :to => "search#new", controller: 'search'
   resources :catalog_items
   resources :carts
   match '/carts/add/:catalog_item_id', to: 'carts#add_to_cart', as: :add_to_cart, via: [:get, :post]
