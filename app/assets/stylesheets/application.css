@@ -16,3 +16,7 @@ a {
   text-decoration: none;
   padding-right: 2em;
 }
+
+span#greeting{
+  float:right;
+}
